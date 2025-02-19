@@ -50,6 +50,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "memoryArray",
+						"type": "uint256[]"
+					}
+				],
+				"name": "f",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "get",
 				"outputs": [
@@ -98,11 +111,11 @@
 	},
 	"sources": {
 		"contracts/Counter.sol": {
-			"keccak256": "0x5919156a51d358a82924160d34737428bcedd70f1d57dad6169ce861ae1fcb06",
+			"keccak256": "0x2ce483008cf0135caf48f600beb7ea17f07e60ac1f85010b7fceaa1fda90b57d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1c0c9df392eeddcea1bd219d0b100132952c9dc30948da391f746731c6326833",
-				"dweb:/ipfs/QmNYYWC6Gqivd5nSRYaQNh7XVrcnqoRhAHyh3fDJoFU1aH"
+				"bzz-raw://d691784972ee472487a06a7a3cd946939607c2beb827846c5512f9481ebbeba5",
+				"dweb:/ipfs/QmVymqzQor3xu5qWnHofNXTfFNhDgFm2oYbepbCTza2FiN"
 			]
 		}
 	},
