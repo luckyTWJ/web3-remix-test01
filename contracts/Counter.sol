@@ -17,7 +17,7 @@ contract Counter {
 
     // uint immutable de;
 
-    constructor( address _ref) {
+    constructor(address _ref) {
         maxBalance = _ref.balance;
         counter = 0;
     }
@@ -59,24 +59,17 @@ contract Counter {
         this.add(1);
     }
 
+    //引用类型  包括数组 结构体
+    // memory（内存） 变量在运行时存在，生命周期只存在函数调用期间   -> 开销最大  gas
+    // storage（存储）保存状态变量  合约存在保存在区块链中
+    // calldata（调用数据）存储函数参数的特殊数据位置 用来接收外部数据，是一个不可修改的，非持久的函数参数存储区域  ->临时变量，函数掉i用后释放 开销很小
 
-//引用类型  包括数组 结构体
-// memory（内存） 变量在运行时存在，生命周期只存在函数调用期间   -> 开销最大  gas
-// storage（存储）保存状态变量  合约存在保存在区块链中
-// calldata（调用数据）存储函数参数的特殊数据位置 用来接收外部数据，是一个不可修改的，非持久的函数参数存储区域  ->临时变量，函数掉i用后释放 开销很小
+    //在不同引用类型进行赋值时，只有在不同的数据位置赋值时会进行一份拷贝，而在同一个数据位置内通常是增加一个引用  ->最便宜
 
-//在不同引用类型进行赋值时，只有在不同的数据位置赋值时会进行一份拷贝，而在同一个数据位置内通常是增加一个引用  ->最便宜
+    uint256[] x; // 状态变量x的数据存储位置是storage
 
-uint[] x; // 状态变量x的数据存储位置是storage
-
-function f(uint[] memory memoryArray) public {
-    x = memoryArray;// 数组copy到storage中， 因为memory变量赋值给storage
-    uint[] storage y = x;  //仅分配一个指针
-}
-
-
-
-
-
-
+    function f(uint256[] memory memoryArray) public {
+        x = memoryArray; // 数组copy到storage中， 因为memory变量赋值给storage
+        uint256[] storage y = x; //仅分配一个指针
+    }
 }
